@@ -1,1 +1,19 @@
-<h1> Welcome <%= @user.name.capitalize %> </h1>
+<div class="row ui">
+  <div class="z-depth-3 user_info left">
+    <div class="container info_wrap">
+      <div class="image_wrap">
+        <% if @user.image == true %>
+          <img class="user_pic" src= <%=@user.image%> >
+        <% else %>
+          <img class="user_pic" src="https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png">
+        <% end %>
+      </div>
+      <h4 class="center-align"> <%= @user.name.capitalize %> </h4>
+        <div class="divider"></div>
+      <div class="center-align">
+        <p class="left-align"> <%= @user.created_at.strftime("Member since %b %-d, %Y") %> </p>
+        <p class="left-align"> Currently in <%= @user.current_city.capitalize %> </p>
+      </div>
+    </div>
+  </div>
+</div>
