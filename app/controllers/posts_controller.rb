@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_login, except: [:show]
+  before_action :user_match?, only: [:edit, :update, :destroy]
+
   def show
     @post = Post.find_by_id(params[:id])
     @user = User.find_by_id(@post.user_id)
@@ -18,17 +21,28 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by_id(params[:id])
+
   end
 
   def update
-    @post = Post.find_by_id(params[:id])
     @post.update(post_params)
     redirect_to post_path(@post)
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to user_path(session[:user_id])
   end
 
   private
   def post_params
     params.require(:post).permit(:title, :message)
+  end
+
+  def user_match?
+    @post = Post.find_by_id(params[:id])
+    if session[:user_id] != @post.user_id
+      redirect_to root_path
+    end
   end
 end

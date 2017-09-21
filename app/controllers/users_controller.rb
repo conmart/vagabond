@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show, :edit, :update]
+
 
   def index
 
@@ -20,11 +22,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(session[:user_id])
   end
 
   def update
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(session[:user_id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
