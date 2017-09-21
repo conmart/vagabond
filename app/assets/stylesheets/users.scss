@@ -4,19 +4,26 @@
 
 // User Information Panel
 .user_info {
-  margin: 20px;
+  margin: 5px 20px;
   width: 365px;
 }
 
-.info_wrap{
+.info_wrap {
   height: 470px;
+  width: 1100px;
 }
 
-.image_wrap{
+.image_wrap {
   text-align: center;
 }
 
 .user_pic {
   width: 200px;
   margin-top: 15px;
+}
+
+.tips_wrap {
+  margin-top: 20px;
+  height: 430px;
+  overflow: scroll;
 }
