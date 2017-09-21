@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
   def index
-
+    @cities = City.all
   end
 
   def new

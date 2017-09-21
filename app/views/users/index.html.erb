@@ -2,3 +2,17 @@
 <h1> Homepage </h1>
 <hr>
 <%=image_tag("nicki-eliza-schinow-356622.jpg")%>
+
+<br>
+<br>
+<% @cities.each do |city| %>
+
+<div class="center-align">
+  <%= link_to "#{city.name}", city_path(city) %>
+</div>
+
+<% end %>
+
+<br>
+<br>
+<br>
