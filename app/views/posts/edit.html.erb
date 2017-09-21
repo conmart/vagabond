@@ -1,0 +1,12 @@
+<h1>Edit Post</h1>
+
+<%= form_for @post do |f| %>
+
+  <div>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.text_area :message, placeholder: "Message" %>
+  </div>
+  <%= f.submit %>
+<% end %>

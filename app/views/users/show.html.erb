@@ -26,12 +26,17 @@
   <div class="tips_wrap container">
     <%  @posts.each do |post| %>
       <h5> <%= link_to post.title, post_path(post) %> </h5>
-      <!-- @post.title -->
+
       <p> <%= post.message%> </p>
-      <!-- @post.message -->
+
+      <% if session[:user_id] == @user.id %>
+        <%= link_to "Edit Post", edit_post_path(post) %>
+        <%= link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br>
+      <% end %>
+
       <span>
         <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
-        <!-- @post.created_at.strftime("Member since %b %-d, %Y") -->
       </span>
       <div class="divider"></div>
       <% end %>
