@@ -1,3 +1,7 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.message %></p>
-<p><%= @user.name %></p>
+<% if session[:user_id] == nil %>
+  <p><%= @user.name %></p>
+<% else %>
+  <%= link_to "#{@user.name}", user_path(@user) %>
+<% end %>

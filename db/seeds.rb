@@ -24,3 +24,9 @@ Post.destroy_all
     message: FFaker::Lorem.sentence
     })
   end
+
+City.destroy_all
+  City.create({
+    name: "San Francisco",
+    image: "https://images1.apartments.com/i2/hFgYoT0zCoCAdiUcUR22kOmdhv7VosGC2AghT5uI12w/110/san-francisco-ca-the-iconic-golden-gate-bridge.jpg"
+    })
