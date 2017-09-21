@@ -24,46 +24,18 @@
   <h4> Tips </h4>
   <div class="divider"></div>
   <div class="tips_wrap container">
-    <!-- for_each @post do || -->
-      <h5> Bring water </h5>
+    <%  @posts.each do |post| %>
+      <h5> <%= post.title %> </h5>
       <!-- @post.title -->
-      <p> It can get really hot down there so bring water </p>
+      <p> <%= post.message%> </p>
       <!-- @post.message -->
       <span>
-        <small class="right-align"> Created Jan 20, 2017</small>
+        <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
         <!-- @post.created_at.strftime("Member since %b %-d, %Y") -->
       </span>
       <div class="divider"></div>
-        <h5> Bring towels </h5>
-        <p> The river is amazing but it gets cold when youre wet, bring a towl to dry off </p>
-        <span>
-          <small class="right-align"> Created Jul 30, 2017</small>
-        </span>
-      <div class="divider"></div>
-      <h5> Bring towels </h5>
-      <p> The river is amazing but it gets cold when youre wet, bring a towl to dry off </p>
-      <span>
-        <small class="right-align"> Created Jul 30, 2017</small>
-      </span>
-    <div class="divider"></div>
-    <h5> Bring towels </h5>
-    <p> The river is amazing but it gets cold when youre wet, bring a towl to dry off </p>
-    <span>
-      <small class="right-align"> Created Jul 30, 2017</small>
-    </span>
-  <div class="divider"></div>
-  <h5> Bring towels </h5>
-  <p> The river is amazing but it gets cold when youre wet, bring a towl to dry off </p>
-  <span>
-    <small class="right-align"> Created Jul 30, 2017</small>
-  </span>
-<div class="divider"></div>
-<h5> Bring towels </h5>
-<p> The river is amazing but it gets cold when youre wet, bring a towl to dry off </p>
-<span>
-  <small class="right-align"> Created Jul 30, 2017</small>
-</span>
-<div class="divider"></div>
+      <% end %>
+
 
   </div>
 </div>
