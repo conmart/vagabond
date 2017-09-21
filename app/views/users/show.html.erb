@@ -9,14 +9,14 @@
           <img class="user_pic" src="https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png">
         <% end %> -->
       </div>
-      <h4 class="center-align"> <%= @user.name.capitalize %> </h4>
+      <h4 class="center-align"> <%= @user.name %> </h4>
         <div class="divider"></div>
       <div class="center-align">
         <p class="left-align"> <%= @user.created_at.strftime("Member since %b %-d, %Y") %> </p>
-        <p class="left-align"> Currently in <%= @user.current_city.capitalize %> </p>
-        <% if @current_user == @user %>
+        <p class="left-align"> Currently in <%= @user.current_city %> </p>
+        <% if session[:user_id] == @user.id %>
           <br>
-          <%= link_to 'Edit Profile', edit_user_path(@current_user) %>
+          <%= link_to 'Edit Profile', edit_user_path(@user) %>
         <% end %>
       </div>
     </div>
