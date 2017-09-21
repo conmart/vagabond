@@ -25,7 +25,7 @@
   <div class="divider"></div>
   <div class="tips_wrap container">
     <%  @posts.each do |post| %>
-      <h5> <%= post.title %> </h5>
+      <h5> <%= link_to post.title, post_path(post) %> </h5>
       <!-- @post.title -->
       <p> <%= post.message%> </p>
       <!-- @post.message -->
