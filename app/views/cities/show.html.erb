@@ -6,7 +6,7 @@
   <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
 <% end %>
 
-<% @posts.sort_by(&:created_at) %>
+<% @posts.sort_by {|post| post[:created_at]} %>
 
 <%  @posts.each do |post| %>
   <% @user = User.find_by_id(post.user_id) %>

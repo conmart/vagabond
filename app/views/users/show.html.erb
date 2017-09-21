@@ -26,12 +26,12 @@
   <div class="tips_wrap container">
     <%  @posts.each do |post| %>
       <h5> <%= link_to post.title, post_path(post) %> </h5>
-      <!-- @post.title -->
+
       <p> <%= post.message%> </p>
-      <!-- @post.message -->
+
       <span>
         <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
-        <!-- @post.created_at.strftime("Member since %b %-d, %Y") -->
+        <small><%= link_to "Edit Post", edit_post_path(post) %></small>
       </span>
       <div class="divider"></div>
       <% end %>

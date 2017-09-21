@@ -17,6 +17,16 @@ class PostsController < ApplicationController
     redirect_to city_path(@city)
   end
 
+  def edit
+    @post = Post.find_by_id(params[:id])
+  end
+
+  def update
+    @post = Post.find_by_id(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post)
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :message)
