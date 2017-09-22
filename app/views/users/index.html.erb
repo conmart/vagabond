@@ -2,23 +2,30 @@
   <%=image_tag("nicki-eliza-schinow-356622.jpg")%>
 
 
-    <h2 class="main_title">Welcome</h2>
+  <h2 class="main_title">Welcome</h2>
+
 
 
 </div>
-  <br>
-  <br>
-<div class="container home_content">
-  <h4 class="center-align"> Welcome to Junket! </h4>
-    <br>
-  <div class="divider"></div>
-    <br>
-  <div class="index_body">
-    <h5>Create a Profile or</h5>
-    <h5>check out the Cities tab</h5>
-    <h5>in the navbar to</h5>
-    <h5>view Posts</h5>
+
+<br>
+<h4 class="center-align">Explore These Cities</h4>
+<br>
+<div class="divider"></div>
+<br>
+<div class="row">
+  <% @cities.each do |city| %>
+  <div class="col s4">
+    <div class="card">
+      <div class="real-card">
+        <div class="card-image">
+          <img src="<%= city.image %>">
+        </div>
+        <span class="card-title card_title"><%= link_to "#{city.name}", city_path(city) %></span>
+      </div>
+    </div>
   </div>
-    <br>
-    <br>
+  <% end %>
 </div>
+<br>
+<br>

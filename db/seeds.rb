@@ -17,7 +17,7 @@ City.destroy_all
     },
     {
       name: "Gibraltar",
-      image: "https://www.gibraltar.gov.gi/new/sites/default/files/Home.jpg"
+      image: "http://i.telegraph.co.uk/multimedia/archive/02635/gibraltar_2635526k.jpg"
     },
     {
       name: "London",
