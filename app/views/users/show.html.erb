@@ -2,12 +2,11 @@
   <div class="z-depth-3 user_info left">
     <div class="container info_wrap">
       <div class="image_wrap">
-        <img class="user_pic" src="https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png">
-        <!-- <% if @user.image %>
-          <img class="user_pic" src= <%=@user.image%> >
-        <% else %>
+        <% if @user.image == "" %>
           <img class="user_pic" src="https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png">
-        <% end %> -->
+        <% else %>
+          <img class="user_pic" src="<%= @user.image %>" >
+        <% end %>
       </div>
       <h4 class="center-align"> <%= @user.name %> </h4>
         <div class="divider"></div>
@@ -16,31 +15,35 @@
         <p class="left-align"> Currently in <%= @user.current_city %> </p>
         <% if session[:user_id] == @user.id %>
           <br>
-          <%= link_to 'Edit Profile', edit_user_path(@user) %>
+          <%= link_to 'Edit Profile', edit_user_path(@user), class: "body_link" %>
         <% end %>
       </div>
     </div>
   </div>
-  <h4> Tips </h4>
+  <h4> Posts </h4>
   <div class="divider"></div>
   <div class="tips_wrap container">
-    <%  @posts.each do |post| %>
-      <h5> <%= link_to post.title, post_path(post) %> </h5>
-
-      <p> <%= post.message%> </p>
-
-      <% if session[:user_id] == @user.id %>
-        <%= link_to "Edit Post", edit_post_path(post) %>
-        <%= link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <br>
+  <% if @user.posts.length == 0 %>
+    <p> To create a post, check out these cities: </p>
+    <ul>
+      <% @cities.each do |city| %>
+        <li class="city_choice"> <%= link_to city.name, city_path(city), class: "city_link" %> </li>
       <% end %>
-
-      <span>
-        <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
-      </span>
-      <div class="divider"></div>
+    </ul>
+  <% else %>
+      <% @posts.each do |post| %>
+        <h5> <%= link_to post.title, post_path(post), class: "body_link" %> </h5>
+        <p> <%= post.message%> </p>
+        <% if session[:user_id] == @user.id %>
+          <%= link_to "Edit Post", edit_post_path(post), class: "body_link" %>
+          <%= link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' }, class: "body_link" %>
+          <br>
+        <% end %>
+        <span>
+          <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
+        </span>
+        <div class="divider"></div>
       <% end %>
-
-
+    <% end %>
   </div>
 </div>

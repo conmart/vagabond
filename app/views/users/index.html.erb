@@ -1,18 +1,22 @@
-
-<h1> Homepage </h1>
-<hr>
-<%=image_tag("nicki-eliza-schinow-356622.jpg")%>
-
-<br>
-<br>
-<% @cities.each do |city| %>
-
-<div class="center-align">
-  <%= link_to "#{city.name}", city_path(city) %>
+<div class="header z-depth-1">
+  <%=image_tag("nicki-eliza-schinow-356622.jpg")%>
+  <!-- <span class="main_title z-depth-1">
+    <h4>Welcome</h4>
+  </span> -->
 </div>
-
-<% end %>
-
-<br>
-<br>
-<br>
+  <br>
+  <br>
+<div class="container home_content">
+  <h4 class="center-align"> Welcome to Junket </h4>
+    <br>
+  <div class="divider"></div>
+    <br>
+  <div class="index_body">
+    <h5>Create a Profile or</h5>
+    <h5>check out the Cities tab</h5>
+    <h5>in the navbar to</h5>
+    <h5>view Posts</h5>
+  </div>
+    <br>
+    <br>
+</div>
