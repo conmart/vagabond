@@ -1,4 +1,4 @@
-<div class="page_body">
+<div class="page_body container">
   <h1> Create User </h1>
   <hr>
   <%= form_for @user do |f| %>
@@ -17,6 +17,6 @@
     <div>
       <%= f.password_field :password, placeholder: 'Password' %>
     </div>
-    <%= f.submit 'Sign Up' %>
+    <%= f.submit 'Sign Up', class: "btn waves-effect waves-light page_body" %>
   <% end %>
 </div>

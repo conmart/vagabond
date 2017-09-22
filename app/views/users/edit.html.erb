@@ -1,4 +1,4 @@
-<div class="page_body">
+<div class="page_body container">
   <h1> Edit User </h1>
   <hr>
   <%= form_for @user do |f| %>
@@ -9,7 +9,7 @@
       <%= f.text_field :current_city, placeholder: 'Current City' %>
     </div>
 
-    <%= f.submit 'Save Changes' %>
+    <%= f.submit 'Save Changes', class: "btn waves-effect waves-light" %>
   <% end %>
 
   <%= link_to "Back", user_path(@user) %>

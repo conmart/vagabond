@@ -4,7 +4,7 @@
 
 // User Information Panel
 body {
-  background-color: rgb(46,218,202);
+  background-color: white;
 }
 
 * {
@@ -135,7 +135,7 @@ img {
 }
 
 .page_body {
-  margin-top: 84px;
+  margin-top: 84px !important;
   background-color: white !important;
 }
 
@@ -145,6 +145,7 @@ img {
 }
 .card {
   overflow: hidden;
+  width: 450px;
 }
 
 
@@ -154,6 +155,7 @@ img {
 
 .real-card {
   position: relative;
+  width: 450px;
 }
 .card_title {
   bottom: 15px;
