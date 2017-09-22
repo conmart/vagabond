@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user
+    if @user.valid?
       login(@user)
       redirect_to @user
     else

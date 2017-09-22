@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'users#index'
-  resources :users
+  resources :users, except: [:index]
 
 
   get "/login", to: "sessions#new"
