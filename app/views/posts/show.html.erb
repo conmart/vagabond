@@ -1,4 +1,4 @@
-<div class="post_wrap">
+<div class="post_body page_body">
   <h2><%= @post.title %></h2>
   <% @city = City.find_by_id(@post.city_id) %>
   <small>For <%= link_to "#{@city.name}", city_path(@city), class: "body_link" %></small>

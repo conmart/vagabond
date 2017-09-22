@@ -1,14 +1,16 @@
-<h1> Edit User </h1>
-<hr>
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.text_field :name, placeholder: 'Name' %>
-  </div>
-  <div>
-    <%= f.text_field :current_city, placeholder: 'Current City' %>
-  </div>
-  
-  <%= f.submit 'Save Changes' %>
-<% end %>
+<div class="page_body">
+  <h1> Edit User </h1>
+  <hr>
+  <%= form_for @user do |f| %>
+    <div>
+      <%= f.text_field :name, placeholder: 'Name' %>
+    </div>
+    <div>
+      <%= f.text_field :current_city, placeholder: 'Current City' %>
+    </div>
 
-<%= link_to "Back", user_path(@user) %>
+    <%= f.submit 'Save Changes' %>
+  <% end %>
+
+  <%= link_to "Back", user_path(@user) %>
+</div>
