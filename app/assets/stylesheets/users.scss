@@ -4,7 +4,7 @@
 
 // User Information Panel
 body {
-  background-color: white;
+  background-color: rgb(46,218,202);
 }
 
 * {
@@ -44,6 +44,10 @@ nav {
   margin-top: 20px;
   height: 430px;
   overflow: scroll;
+}
+
+.header img {
+  top: 66px;
 }
 
 img {
@@ -108,11 +112,14 @@ img {
   position: absolute;
   width: 300px;
   margin: 10px 0;
-  color: white;
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.5);
   right: 15px;
   bottom: 20px;
+}
+
+.city_title {
+  color: white !important;
 }
 
 .city_choice {
@@ -124,10 +131,10 @@ img {
   color: white;
   top: 80px;
   right: 42%;
-  font-weight: 300 !important;
+  // font-weight: 300 !important;
 }
 
 .page_body {
   margin-top: 84px;
-  background-color: white;
+  background-color: white !important;
 }
