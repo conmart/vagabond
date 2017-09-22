@@ -36,6 +36,11 @@
         </div>
       <% end %>
      </nav>
+     <% flash.each do |name, msg| %>
+      <p>
+        <%= name.capitalize %>: <%= msg %>
+      </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
