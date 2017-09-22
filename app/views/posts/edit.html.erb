@@ -1,4 +1,4 @@
-<div class="post_body page_body">
+<div class="page_body container">
   <h1>Edit Post</h1>
 
   <%= form_for @post do |f| %>
@@ -9,6 +9,6 @@
     <div>
       <%= f.text_area :message, placeholder: "Message" %>
     </div>
-    <%= f.submit %>
+    <%= f.submit class: "btn waves-effect waves-light page_body"%>
   <% end %>
 </div>

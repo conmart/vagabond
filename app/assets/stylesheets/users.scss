@@ -46,6 +46,10 @@ nav {
   overflow: scroll;
 }
 
+.header img {
+  top: 66px;
+}
+
 img {
   width: 100%;
 }
@@ -108,11 +112,14 @@ img {
   position: absolute;
   width: 300px;
   margin: 10px 0;
-  color: white;
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.5);
   right: 15px;
   bottom: 20px;
+}
+
+.city_title {
+  color: white !important;
 }
 
 .city_choice {
@@ -124,12 +131,36 @@ img {
   color: white;
   top: 80px;
   right: 42%;
-  font-weight: 300 !important;
+  // font-weight: 300 !important;
 }
 
 .page_body {
-  margin-top: 84px;
-  background-color: white;
+  margin-top: 84px !important;
+  background-color: white !important;
+}
+
+.card-image {
+  width: 450px;
+  height: 225px;
+}
+.card {
+  overflow: hidden;
+  width: 450px;
+}
+
+
+.card-title a {
+  color: white;
+}
+
+.real-card {
+  position: relative;
+  width: 450px;
+}
+.card_title {
+  bottom: 15px;
+  right: 15px;
+  position: absolute;
 }
 
 .card-image {
