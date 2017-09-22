@@ -13,6 +13,7 @@
       <div class="center-align">
         <p class="left-align"> <%= @user.created_at.strftime("Member since %b %-d, %Y") %> </p>
         <p class="left-align"> Currently in <%= @user.current_city %> </p>
+        <p class="left-align"> <%= @user.name %> has left <%= @user.comments.count %> comments </p>
         <% if session[:user_id] == @user.id %>
           <br>
           <%= link_to 'Edit Profile', edit_user_path(@user), class: "body_link" %>
