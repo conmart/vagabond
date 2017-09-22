@@ -23,14 +23,14 @@
   <h4> Posts </h4>
   <div class="divider"></div>
   <div class="tips_wrap container">
-  <% if @user.posts.length == 0 %>
-    <p> To create a post, check out these cities: </p>
-    <ul>
-      <% @cities.each do |city| %>
-        <li class="city_choice"> <%= link_to city.name, city_path(city), class: "city_link" %> </li>
-      <% end %>
-    </ul>
-  <% else %>
+    <% if @user.posts.length == 0 %>
+      <p> To create a post, check out these cities: </p>
+      <ul>
+        <% @cities.each do |city| %>
+          <li class="city_choice"> <%= link_to city.name, city_path(city), class: "city_link" %> </li>
+        <% end %>
+      </ul>
+    <% else %>
       <% @posts.each do |post| %>
         <h5> <%= link_to post.title, post_path(post), class: "body_link" %> </h5>
         <p> <%= post.message%> </p>
