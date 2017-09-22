@@ -1,9 +1,14 @@
-<h2><%= @post.title %></h2>
-<% @city = City.find_by_id(@post.city_id) %>
-<small>For <%= link_to "#{@city.name}", city_path(@city) %></small>
-<p><%= @post.message %></p>
-<% if session[:user_id] == nil %>
-  <p><%= @user.name %></p>
-<% else %>
-  <%= link_to "#{@user.name}", user_path(@user) %>
-<% end %>
+<div class="post_body page_body">
+  <h2><%= @post.title %></h2>
+  <% @city = City.find_by_id(@post.city_id) %>
+  <small>For <%= link_to "#{@city.name}", city_path(@city), class: "body_link" %></small>
+  <p><%= @post.message %></p>
+  <% if session[:user_id] == nil %>
+    <p><%= @user.name %></p>
+  <% else %>
+    <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %>
+  <% end %>
+  <span>
+    <small class="right-align"><%= @post.created_at.strftime("Posted on %b %-d, %Y")%></small>
+  </span>
+</div>

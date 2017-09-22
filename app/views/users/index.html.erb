@@ -1,18 +1,31 @@
+<div class="header_hp center-align z-depth-1">
+  <%=image_tag("nicki-eliza-schinow-356622.jpg")%>
 
-<h1> Homepage </h1>
-<hr>
-<%=image_tag("nicki-eliza-schinow-356622.jpg")%>
 
-<br>
-<br>
-<% @cities.each do |city| %>
+  <h2 class="main_title">Welcome</h2>
 
-<div class="center-align">
-  <%= link_to "#{city.name}", city_path(city) %>
+
+
 </div>
 
-<% end %>
-
 <br>
+<h4 class="center-align">Explore These Cities</h4>
+<br>
+<div class="divider"></div>
+<br>
+<div class="row">
+  <% @cities.each do |city| %>
+  <div class="col s4">
+    <div class="card">
+      <div class="real-card">
+        <div class="card-image">
+          <img src="<%= city.image %>">
+        </div>
+        <span class="card-title card_title"><%= link_to "#{city.name}", city_path(city) %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 <br>
 <br>

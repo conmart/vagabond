@@ -1,22 +1,29 @@
-<h1><%= @city.name %></h1>
-<img src= "<%= @city.image %>" >
+<div class="header z-depth-1">
+  <img src= "<%= @city.image %>" >
+  <span class="city_name z-depth-1">
+    <h3><%= @city.name %></h3>
+  </span>
+</div>
 <% if session[:user_id] == nil %>
   <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", root_path %></button>
 <% else %>
   <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
 <% end %>
-
-<%  @posts.each do |post| %>
-  <% @user = User.find_by_id(post.user_id) %>
-  <h5> <%= link_to "#{post.title}", post_path(post) %> </h5>
-  <p> <%= post.message%> </p>
-  <% if session[:user_id] == nil %>
-    <p><%= @user.name %></p>
-  <% else %>
-    <%= link_to "#{@user.name}", user_path(@user) %>
+<div class="post_wrap">
+  <%  @posts.each do |post| %>
+    <% @user = User.find_by_id(post.user_id) %>
+    <br>
+    <div class="divider"></div>
+    <h5> <%= link_to "#{post.title}", post_path(post), class: "body_link" %> </h5>
+    <p> <%= post.message%> </p>
+    <% if session[:user_id] == nil %>
+      <p><%= @user.name %></p>
+    <% else %>
+      <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %>
+    <% end %>
+    <span>
+      <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
+    </span>
   <% end %>
-  <span>
-    <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
-  </span>
   <div class="divider"></div>
-  <% end %>
+</div>

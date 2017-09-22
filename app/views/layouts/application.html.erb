@@ -9,25 +9,38 @@
   </head>
 
   <body>
+    <ul id="dropdown1" class="dropdown-content">
+    <% City.all.each do |city| %>
+      <li><%= link_to city.name, city_path(city.id) %></li>
+      <li class="divider"></div>
+    <% end %>
+    </ul>
     <nav>
       <% if session[:user_id] == nil %>
        <div class="nav-wrapper">
-         <a href= "/" class="brand-logo">Logo</a>
+         <a href= "/" class="brand-logo junket">Junket!</a>
          <ul id="nav-mobile" class="right hide-on-med-and-down">
+           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Cities</a></li>
            <li><%= link_to "Sign Up", new_user_path %></li>
            <li><%= link_to "Log In", login_path%></li>
          </ul>
        </div>
       <% else %>
         <div class="nav-wrapper">
-          <a href="/" class="brand-logo">Logo</a>
+          <a href="/" class="brand-logo junket">Junket!</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Cities</a></li>
             <li><%= link_to "Profile", user_path(session[:user_id]) %></li>
             <li><%= link_to "Log Out", logout_path%></li>
           </ul>
         </div>
       <% end %>
      </nav>
+     <% flash.each do |name, msg| %>
+      <p>
+        <%= name.capitalize %>: <%= msg %>
+      </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

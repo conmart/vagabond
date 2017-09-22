@@ -6,27 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-# User.destroy_all
-#
-# 5.times do
-#   User.create({
-#     name: FFaker::Name.name,
-#     current_city: FFaker::Address.city,
-#     image: "https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png",
-#     email: FFaker::Internet.email,
-#     password:
-#
-#     })
-Post.destroy_all
-5.times do
-  Post.create({
-    title: FFaker::Lorem.word,
-    message: FFaker::Lorem.sentence
-    })
-  end
+
 
 City.destroy_all
-  City.create({
-    name: "San Francisco",
-    image: "https://images1.apartments.com/i2/hFgYoT0zCoCAdiUcUR22kOmdhv7VosGC2AghT5uI12w/110/san-francisco-ca-the-iconic-golden-gate-bridge.jpg"
-    })
+  City.create(
+  [
+    {
+      name: "San Francisco",
+      image: "https://images1.apartments.com/i2/hFgYoT0zCoCAdiUcUR22kOmdhv7VosGC2AghT5uI12w/110/san-francisco-ca-the-iconic-golden-gate-bridge.jpg"
+    },
+    {
+      name: "Gibraltar",
+      image: "http://i.telegraph.co.uk/multimedia/archive/02635/gibraltar_2635526k.jpg"
+    },
+    {
+      name: "London",
+      image: "https://media.architecturaldigest.com/photos/56fd9d65ecd154e0329c1627/2:1/w_2560/london-travel-guide-lede.jpg"
+    }
+  ])
