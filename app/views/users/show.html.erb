@@ -11,11 +11,12 @@
       <h4 class="center-align"> <%= @user.name %> </h4>
         <div class="divider"></div>
       <div class="center-align">
-        <p class="left-align"> <%= @user.created_at.strftime("Member since %b %-d, %Y") %> </p>
-        <p class="left-align"> Currently in <%= @user.current_city %> </p>
+        <p class="left-align p_weight"> <%= @user.created_at.strftime("Member since %b %-d, %Y") %> </p>
+        <p class="left-align p_weight"> Currently in <%= @user.current_city %> </p>
+        <p class="left-align p_weight"> <%= pluralize(@user.comments.count, 'Comment') %> </p>
         <% if session[:user_id] == @user.id %>
           <br>
-          <%= link_to 'Edit Profile', edit_user_path(@user), class: "body_link" %>
+          <%= link_to 'Edit Profile', edit_user_path(@user), class: "body_link btn" %>
         <% end %>
       </div>
     </div>
@@ -32,7 +33,7 @@
       </ul>
     <% else %>
       <% @posts.each do |post| %>
-        <h5> <%= link_to post.title, post_path(post), class: "body_link" %> </h5>
+        <h5> <%= link_to post.title, post_path(post), class: "post_link" %> </h5>
         <p> <%= post.message%> </p>
         <% if session[:user_id] == @user.id %>
           <%= link_to "Edit", edit_post_path(post), class: "body_link" %>

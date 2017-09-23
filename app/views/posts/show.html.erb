@@ -11,4 +11,22 @@
   <span>
     <small class="right-align"><%= @post.created_at.strftime("Posted on %b %-d, %Y")%></small>
   </span>
+  <p>Comments:</p>
+    <% @comments.each do |comment| %>
+    <% commenter = User.find_by_id(comment.user_id) %>
+    <p><%= comment.message %></p>
+    <span>
+      <small class="right-align">Added by <%= commenter.name %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></small>
+    </span>
+  
+    <% end %>
+  <%= form_for @new_comment, :url => "/posts/#{@post.id}/comments" do |f| %>
+    <div>
+      <%= f.text_area :message, placeholder: "Add New Comment" %>
+    </div>
+    <%= f.submit class: "btn waves-effect waves-light"%>
+  <% end %>
+
+
+
 </div>
