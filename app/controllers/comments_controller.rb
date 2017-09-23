@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_action :user_match?, only: [:destroy]
 
+  def index
+
+  end
+
   def create
     @comment = Comment.create(comment_params)
     @post = Post.find_by_id(params[:id])

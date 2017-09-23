@@ -11,9 +11,8 @@ Rails.application.routes.draw do
 
   resources :cities
 
+  get "/comments", to: "comments#index", as: 'comments'
   post "/posts/:id/comments", to: "comments#create"
-
-  # get '/users/new', to: 'users#new', as: 'new_user'
-  # post '/users', to: 'users#create'
+  delete "/comments/:id", to: "comments#destroy"
 
 end

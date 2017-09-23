@@ -27,7 +27,7 @@
     <br>
     <p> <%= pluralize(post.comments.count, 'Comment') %> <p>
     <% if post.comments.count > 0 %>
-      <%= link_to "Go to Comments", post_path(post), class: "body_link" %>
+      <%= link_to "Go to Thread", post_path(post), class: "body_link" %>
     <% else %>
       <%= link_to "Add a Comment", post_path(post), class: "body_link" %>
     <% end %>
