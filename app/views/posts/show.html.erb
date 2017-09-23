@@ -13,12 +13,21 @@
   </span>
   <p>Comments:</p>
     <% @comments.each do |comment| %>
-    <% commenter = User.find_by_id(comment.user_id) %>
-    <p><%= comment.message %></p>
-    <span>
-      <small class="right-align">Added by <%= commenter.name %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></small>
-    </span>
-  
+      <% commenter = User.find_by_id(comment.user_id) %>
+      <p><%= comment.message %></p>
+      <% if session[:user_id] == nil %>
+        <span>
+          <small class="right-align">Added by <%= commenter.name %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></small>
+        </span>
+      <% else %>
+        <span>
+          <small class="right-align">Added by <%= link_to "#{commenter.name}", user_path(commenter), class: "body_link" %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></small>
+        </span>
+      <% end %>
+      <% if session[:user_id] == commenter.id %>
+        <%= link_to "Delete", comment, :url => "/comments/#{comment.id}", method: :delete, class: "body_link" %>
+      <% end %>
+
     <% end %>
   <%= form_for @new_comment, :url => "/posts/#{@post.id}/comments" do |f| %>
     <div>
