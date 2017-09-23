@@ -35,14 +35,15 @@
       <% @posts.each do |post| %>
         <h5> <%= link_to post.title, post_path(post), class: "post_link" %> </h5>
         <p> <%= post.message%> </p>
-        <% if session[:user_id] == @user.id %>
-          <%= link_to "Edit", edit_post_path(post), class: "body_link" %>
-          <%= link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' }, class: "body_link" %>
-          <br>
-        <% end %>
         <span>
           <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
         </span>
+        <br>
+        <% if session[:user_id] == @user.id %>
+          <%= link_to material_icon.delete, post, method: :delete, data: { confirm: 'Are you sure?' }, class: "body_link" %>
+          <%= link_to material_icon.edit, edit_post_path(post), class: "body_link" %>
+        <% end %>
+
         <div class="divider"></div>
       <% end %>
     <% end %>

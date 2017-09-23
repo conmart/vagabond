@@ -1,40 +1,41 @@
 <div class="page_body container">
   <h2><%= @post.title %></h2>
   <% @city = City.find_by_id(@post.city_id) %>
-  <small>For <%= link_to "#{@city.name}", city_path(@city), class: "body_link" %></small>
-  <p><%= @post.message %></p>
+  <h4><%= @post.message %></h4>
+  <big>City: <%= link_to "#{@city.name}", city_path(@city), class: "body_link" %></big>
   <% if session[:user_id] == nil %>
-    <p><%= @user.name %></p>
+    <p>Posted by <%= @user.name %> <%= @post.created_at.strftime(" on %b %-d, %Y")%></p>
   <% else %>
-    <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %>
+    <p>Posted by <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %> <%= @post.created_at.strftime(" on %b %-d, %Y")%></p>
   <% end %>
-  <span>
-    <small class="right-align"><%= @post.created_at.strftime("Posted on %b %-d, %Y")%></small>
-  </span>
-  <p>Comments:</p>
-    <% @comments.each do |comment| %>
-      <% commenter = User.find_by_id(comment.user_id) %>
-      <p><%= comment.message %></p>
-      <% if session[:user_id] == nil %>
-        <span>
-          <small class="right-align">Added by <%= commenter.name %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></small>
-        </span>
-      <% else %>
-        <span>
-          <small class="right-align">Added by <%= link_to "#{commenter.name}", user_path(commenter), class: "body_link" %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></small>
-        </span>
-      <% end %>
-      <% if session[:user_id] == commenter.id %>
-        <%= link_to "Delete", comment, :url => "/comments/#{comment.id}", method: :delete, class: "body_link" %>
-      <% end %>
 
+  <p>Comments:</p>
+
+  <div class="comments-thread">
+      <% @comments.each do |comment| %>
+        <% commenter = User.find_by_id(comment.user_id) %>
+        <big><%= comment.message %></big>
+        <% if session[:user_id] == nil %>
+          <span>
+            <p><%= commenter.name %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></p>
+          </span>
+        <% else %>
+          <span>
+            <p><%= link_to "#{commenter.name}", user_path(commenter), class: "body_link" %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></p>
+          </span>
+        <% end %>
+        <% if session[:user_id] == commenter.id %>
+          <%= link_to material_icon.delete, comment, :url => "/comments/#{comment.id}", method: :delete, class: "body_link" %>
+        <% end %>
+        <br>
+      <% end %>
+    <%= form_for @new_comment, :url => "/posts/#{@post.id}/comments" do |f| %>
+      <div>
+        <%= f.text_area :message, placeholder: "Add New Comment" %>
+      </div>
+      <%= f.submit class: "btn waves-effect waves-light"%>
     <% end %>
-  <%= form_for @new_comment, :url => "/posts/#{@post.id}/comments" do |f| %>
-    <div>
-      <%= f.text_area :message, placeholder: "Add New Comment" %>
-    </div>
-    <%= f.submit class: "btn waves-effect waves-light"%>
-  <% end %>
+  </div>
 
 
 

@@ -1,4 +1,4 @@
-<div class="post_body page_body">
+<div class="post_body page_body container">
   <h1>Edit Post</h1>
 
   <%= form_for @post do |f| %>
@@ -11,4 +11,7 @@
     </div>
     <%= f.submit class: "btn waves-effect waves-light" %>
   <% end %>
+  <br>
+  <%= link_to "Back", user_path(@user), class: "body_link" %>
+
 </div>
