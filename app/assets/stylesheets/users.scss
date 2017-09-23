@@ -19,9 +19,14 @@ nav {
   top: 0;
 }
 
+a {
+
+}
+
 .user_info {
   margin: 5px 20px;
   width: 365px;
+  height: 500px;
   background-color: rgb(46,218,202);
 }
 
@@ -79,10 +84,16 @@ img {
 
 .body_link {
   color: rgb(60,129,123);
+  text-decoration: underline;
+}
+
+.post_link {
+  color: rgb(46,218,202);
   font-weight: 300;
 }
 
 .city_link {
+  text-decoration: underline;
   color: rgb(60,129,123);
   font-weight: 300;
   margin-left: 10px;
@@ -143,11 +154,15 @@ img {
   width: 450px;
   height: 225px;
 }
+
+.p_weight {
+  font-weight: 400 !important;
+}
+
 .card {
   overflow: hidden;
   width: 450px;
 }
-
 
 .card-title a {
   color: white;
@@ -170,7 +185,6 @@ img {
 .card {
   overflow: hidden;
 }
-
 
 .card-title a {
   color: white;

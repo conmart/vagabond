@@ -14,7 +14,7 @@
     <% @user = User.find_by_id(post.user_id) %>
     <br>
     <div class="contain"><div class="divider"></div></div>
-    <h5> <%= link_to "#{post.title}", post_path(post), class: "body_link" %> </h5>
+    <h5> <%= link_to "#{post.title}", post_path(post), class: "post_link" %> </h5>
     <p> <%= post.message%> </p>
     <% if session[:user_id] == nil %>
       <p><%= @user.name %></p>
@@ -25,6 +25,12 @@
       <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
     </span>
     <br>
-    <%= link_to "Add a Comment", post_path(post), class: "body_link" %>
+    <p> <%= pluralize(post.comments.count, 'Comment') %> <p>
+    <% if post.comments.count > 0 %>
+      <%= link_to "Go to Comments", post_path(post), class: "body_link" %>
+    <% else %>
+      <%= link_to "Add a Comment", post_path(post), class: "body_link" %>
+    <% end %>
+  <div class="divider"></div>
   <% end %>
 </div>

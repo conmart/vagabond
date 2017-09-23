@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-
+Post.destroy_all
 City.destroy_all
   City.create(
   [
