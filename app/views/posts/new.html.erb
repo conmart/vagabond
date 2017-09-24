@@ -2,7 +2,6 @@
   <h1>Create a New Post</h1>
 
   <%= form_for @post do |f| %>
-
     <div>
       <%= f.text_field :title, placeholder: "Title" %>
     </div>
@@ -11,4 +10,7 @@
     </div>
     <%= f.submit class: "btn waves-effect waves-light" %>
   <% end %>
+  <br>
+  <% @city = City.find_by_id(session[:last_city_id]) %>
+  <%= link_to material_icon.arrow_back, city_path(@city) %>
 </div>
