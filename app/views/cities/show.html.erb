@@ -5,6 +5,7 @@
   </span>
 </div>
 <% if session[:user_id] == nil %>
+  <% flash[:error] = "You must be logged in to leave a post" %>
   <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_user_path %></button>
 <% else %>
   <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
