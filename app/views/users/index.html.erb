@@ -10,11 +10,11 @@
 <br>
 <div class="row">
   <% @cities.each do |city| %>
-  <div class="col s4">
+  <div class="col l4 s12 m4">
     <div class="card">
       <div class="real-card">
         <div class="card-image">
-          <img src="<%= city.image %>">
+          <img class="city_picture container" src="<%= city.image %>">
         </div>
         <span class="card-title card_title"><%= link_to "#{city.name}", city_path(city) %></span>
       </div>
