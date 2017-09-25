@@ -77,8 +77,8 @@ img {
 .header_hp {
   width: 100vw;
   position: relative;
-  height: 700px;
-  overflow: hidden;
+  height: 600px;
+  top: 33px;
 }
 
 .body_link {
@@ -142,7 +142,7 @@ img {
 .main_title {
   position: absolute;
   color: white;
-  top: 80px;
+  top: 50px;
   right: 42%;
   // font-weight: 300 !important;
 }
