@@ -8,9 +8,13 @@
     <div>
       <%= f.text_field :current_city, placeholder: 'Current City' %>
     </div>
+    <div>
+      <%= f.text_field :image, placeholder: 'Profile Picture URL' %>
+    </div>
 
     <%= f.submit 'Save Changes', class: "btn waves-effect waves-light" %>
   <% end %>
   <br>
-  <%= link_to "Back", user_path(@user), class: "body_link" %>
+  <%= link_to material_icon.arrow_back, user_path(@user) %>
+
 </div>

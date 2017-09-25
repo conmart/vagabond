@@ -34,10 +34,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(session[:user_id])
     @user.update(user_params)
+    fail
     redirect_to user_path(@user)
   end
 
-  private
+  # private
 
   def user_params
     params.require(:user).permit(:name, :current_city, :image, :email, :password)
