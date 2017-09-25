@@ -10,13 +10,14 @@
 <br>
 <div class="row">
   <% @cities.each do |city| %>
+<a href='<%= get_path_from_city(city) %>'>
   <div class="col l4 s12 m4">
     <div class="card">
       <div class="real-card">
         <div class="card-image">
-          <img class="city_picture container" src="<%= city.image %>">
+          <img class="city_picture container" src="<%=city.image %>">
         </div>
-        <span class="card-title card_title"><%= link_to "#{city.name}", city_path(city) %></span>
+        <span class="card-title card_title"><%= city.name %></span>
       </div>
     </div>
   </div>

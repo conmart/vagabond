@@ -16,14 +16,14 @@
         <p class="left-align p_weight"> <%= pluralize(@user.comments.count, 'Comment') %> </p>
         <% if session[:user_id] == @user.id %>
           <br>
-          <%= link_to 'Edit Profile', edit_user_path(@user), class: "body_link btn" %>
+          <%= link_to 'Edit Profile', edit_user_path(@user), class: "body_link btn edit-user" %>
         <% end %>
       </div>
     </div>
   </div>
   <h4> Posts </h4>
   <div class="divider"></div>
-  <div class="tips_wrap container">
+  <div class="tips_wrap left">
     <% if @user.posts.length == 0 %>
       <p> To create a post, check out these cities: </p>
       <ul>

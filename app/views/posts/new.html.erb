@@ -1,6 +1,10 @@
 <div class="page_body container">
   <h1>Create a New Post</h1>
-
+  <% flash.each do |name, msg| %>
+   <p>
+     <%= name.capitalize %>: <%= msg %>
+   </p>
+   <% end %>
   <%= form_for @post do |f| %>
     <div>
       <%= f.text_field :title, placeholder: "Title" %>

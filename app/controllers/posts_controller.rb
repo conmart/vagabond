@@ -20,11 +20,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    @user = User.find_by_id(session[:user_id])
-    @user.posts << @post
-    @city = City.find_by_id(session[:last_city_id])
-    @city.posts << @post
-    redirect_to city_path(@city)
+    if @post.valid?
+      @user = User.find_by_id(session[:user_id])
+      @user.posts << @post
+      @city = City.find_by_id(session[:last_city_id])
+      @city.posts << @post
+      redirect_to city_path(@city)
+    else
+      flash[:error] = "#{@post.errors.full_messages.join(", ")}"
+      redirect_to new_post_path
+    end
   end
 
   def edit

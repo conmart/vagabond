@@ -33,7 +33,12 @@
       <div>
         <%= f.text_area :message, placeholder: "Add New Comment" %>
       </div>
-      <%= f.submit class: "btn waves-effect waves-light"%>
+      <% if session[:user_id] == nil %>
+        <button class="btn waves-effect waves-light disabled">create comment</button>
+        <small> Log in to add comment </small>
+      <% else %>
+        <%= f.submit class: "btn waves-effect waves-light"%>
+      <%end%>
     <% end %>
   </div>
 

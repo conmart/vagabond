@@ -22,14 +22,15 @@ nav {
 .user_info {
   margin: 5px 20px;
   width: 365px;
-  height: 500px;
+  min-height: 500px;
   background-color: rgb(46,218,202);
 }
 
 .info_wrap {
-  height: 470px;
-  width: 1100px;
+  height: max-content;
+  bottom-margin: 30px;
   font-weight: 300 !important;
+
 }
 
 .image_wrap {
@@ -174,6 +175,7 @@ img {
   bottom: 15px;
   right: 15px;
   position: absolute;
+  color: white;
 }
 .city_picture {
   height: 35vh;
@@ -187,4 +189,9 @@ img {
 #dropdown1 {
   top: 65px !important;
   width: 238px !important;
+}
+
+.edit-user {
+  margin-bottom: 30px;
+  background-color: rgb(212,78,46) !important;
 }
