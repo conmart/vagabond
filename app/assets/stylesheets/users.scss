@@ -19,10 +19,6 @@ nav {
   top: 0;
 }
 
-a {
-
-}
-
 .user_info {
   margin: 5px 20px;
   width: 365px;
@@ -151,8 +147,7 @@ img {
 }
 
 .card-image {
-  width: 450px;
-  height: 225px;
+
 }
 
 .p_weight {
@@ -161,29 +156,6 @@ img {
 
 .card {
   overflow: hidden;
-  width: 450px;
-}
-
-.card-title a {
-  color: white;
-}
-
-.real-card {
-  position: relative;
-  width: 450px;
-}
-.card_title {
-  bottom: 15px;
-  right: 15px;
-  position: absolute;
-}
-
-.card-image {
-  width: 450px;
-  height: 225px;
-}
-.card {
-  overflow: hidden;
 }
 
 .card-title a {
@@ -198,3 +170,11 @@ img {
   right: 15px;
   position: absolute;
 }
+.city_picture {
+  height: 35vh;
+  width: auto;
+}
+
+// .row {
+//   width: 100vw;
+// }
