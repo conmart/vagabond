@@ -4,34 +4,51 @@
     <h3 class="city_title"><%= @city.name %></h3>
   </span>
 </div>
-<% if session[:user_id] == nil %>
-  <% flash[:error] = "You must be logged in to leave a post" %>
-  <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_user_path %></button>
-<% else %>
-  <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
-<% end %>
-<div class="post_wrap">
-  <%  @posts.each do |post| %>
-    <% @user = User.find_by_id(post.user_id) %>
-    <br>
-    <div class="contain"><div class="divider"></div></div>
-    <h5> <%= link_to "#{post.title}", post_path(post), class: "post_link" %> </h5>
-    <p> <%= post.message%> </p>
-    <% if session[:user_id] == nil %>
-      <p><%= @user.name %></p>
-    <% else %>
-      <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %>
-    <% end %>
-    <span>
-      <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
-    </span>
-    <br>
-    <p> <%= pluralize(post.comments.count, 'Comment') %> <p>
-    <% if post.comments.count > 0 %>
-      <%= link_to "Go to Thread", post_path(post), class: "body_link" %>
-    <% else %>
-      <%= link_to "Add a Comment", post_path(post), class: "body_link" %>
-    <% end %>
-  <div class="divider"></div>
+
+<div class="post_background">
+  <% if session[:user_id] == nil %>
+    <% flash[:error] = "You must be logged in to leave a post" %>
+    <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_user_path %></button>
+  <% else %>
+    <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
   <% end %>
+  <div class="post_wrap">
+    <% if @city.posts.count == 0 %>
+      <br>
+      <div class="contain"><div class="divider"></div></div>
+      <h5> Sample Post </h5>
+      <p> This is the template showing how your post will be appear on the page. Log in to create a new post. </p>
+      <p> Junket! </p>
+      <span>
+        <small class="right-align">Post on Sep. 25, 2017</small>
+      </span>
+      <br>
+      <p> 0 Comments <p>
+      <div class="divider"></div>
+    <% else %>
+      <%  @posts.each do |post| %>
+        <% @user = User.find_by_id(post.user_id) %>
+        <br>
+        <div class="contain"><div class="divider"></div></div>
+        <h5> <%= link_to "#{post.title}", post_path(post), class: "post_link" %> </h5>
+        <p> <%= post.message%> </p>
+        <% if session[:user_id] == nil %>
+          <p><%= @user.name %></p>
+        <% else %>
+          <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %>
+        <% end %>
+        <span>
+          <small class="right-align"><%= post.created_at.strftime("Posted on %b %-d, %Y")%></small>
+        </span>
+        <br>
+        <p> <%= pluralize(post.comments.count, 'Comment') %> <p>
+        <% if post.comments.count > 0 %>
+          <%= link_to "Go to Thread", post_path(post), class: "body_link" %>
+        <% else %>
+          <%= link_to "Add a Comment", post_path(post), class: "body_link" %>
+        <% end %>
+      <div class="divider"></div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
