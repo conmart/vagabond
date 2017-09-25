@@ -1,5 +1,10 @@
 <div class = "page_body container">
 <h1>Login</h1>
+<% flash.each do |name, msg| %>
+ <p>
+   <%= name.capitalize %>: <%= msg %>
+ </p>
+<% end %>
 <%= form_for @user, url: "/sessions", method: "post" do |f| %>
   <div>
     <%= f.email_field :email, placeholder: "Email" %>

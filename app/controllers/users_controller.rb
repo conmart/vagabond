@@ -34,8 +34,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(session[:user_id])
     @user.update(user_params)
-    fail
-    redirect_to user_path(@user)
+    @user.save(validate: false)
+    redirect_to user_path(@user.id)
   end
 
   # private

@@ -1,6 +1,10 @@
 <div class="page_body container">
   <h1> Create User </h1>
-  <hr>
+  <% flash.each do |name, msg| %>
+   <p>
+     <%= name.capitalize %>: <%= msg %>
+   </p>
+ <% end %>
   <%= form_for @user do |f| %>
     <div>
       <%= f.text_field :name, placeholder: 'Name' %>
