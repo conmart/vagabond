@@ -114,6 +114,10 @@ img {
   left: 10px;
   top: 10px;
 }
+.new-post-error {
+  margin-left: 30px;
+
+}
 
 .city_name {
   text-align: center;
@@ -178,4 +182,9 @@ img {
 
 .post_background {
   background: white;
+}
+
+#dropdown1 {
+  top: 65px !important;
+  width: 238px !important;
 }

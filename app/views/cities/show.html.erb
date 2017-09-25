@@ -7,11 +7,15 @@
 
 <div class="post_background">
   <% if session[:user_id] == nil %>
-    <% flash[:error] = "You must be logged in to leave a post" %>
-    <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_user_path %></button>
+    <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
   <% else %>
     <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
   <% end %>
+  <% flash.each do |name, msg| %>
+   <p class="new-post-error">
+     <%= name.capitalize %>: <%= msg %>
+   </p>
+ <% end %>
   <div class="post_wrap">
     <% if @city.posts.count == 0 %>
       <br>

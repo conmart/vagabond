@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, except: [:show]
+  before_action :require_login, except: [:show, :new]
   before_action :user_match?, only: [:edit, :update, :destroy]
 
   def show
@@ -10,7 +10,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if session[:user_id] == nil
+      flash[:error] = "You must be logged in to leave a post"
+      redirect_to city_path(session[:last_city_id])
+    else
+      @post = Post.new
+    end
   end
 
   def create
