@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to @user
     else
-      flash[:error] = "Error creating user, please make sure all fields are filled in."
+      flash[:error] = "#{@user.errors.full_messages.join(", ")}"
       redirect_to new_user_path
     end
   end
