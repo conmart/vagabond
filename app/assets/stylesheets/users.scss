@@ -48,7 +48,9 @@ nav {
 }
 
 .header img {
-  top: 66px;
+  top: 33px !important;
+  position: fixed;
+  z-index: -1;
 }
 
 img {
@@ -106,7 +108,6 @@ img {
 .post_wrap {
   margin-left: 15px;
   margin-top: 10px;
-  margin-bottom: 30px;
 }
 
 .new-post {
@@ -175,6 +176,6 @@ img {
   width: auto;
 }
 
-// .row {
-//   width: 100vw;
-// }
+.post_background {
+  background: white;
+}
