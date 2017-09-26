@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    if session[:user_id] == nil
+    if session[:user_id].nil?
       flash[:error] = "You must be logged in to leave a post"
       redirect_to city_path(session[:last_city_id])
     else
@@ -21,8 +21,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.valid?
-      @user = User.find_by_id(session[:user_id])
-      @user.posts << @post
+      User.find_by_id(session[:user_id]).posts << @post
       @city = City.find_by_id(session[:last_city_id])
       @city.posts << @post
       redirect_to city_path(@city)

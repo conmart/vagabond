@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   resources :cities
 
-  get "/comments", to: "comments#index", as: 'comments'
-  get "/comments/:id", to: "comments#show", as: 'comment'
+  resources :comments, except: [:post]
+
   post "/posts/:id/comments", to: "comments#create"
-  delete "/comments/:id", to: "comments#destroy"
+
 
 end

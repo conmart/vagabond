@@ -17,7 +17,7 @@
     <% end %>
     </ul>
     <nav>
-      <% if session[:user_id] == nil %>
+      <% if session[:user_id].nil? %>
        <div class="nav-wrapper">
          <a href= "/" class="brand-logo junket">Junket!</a>
          <ul id="nav-mobile" class="right hide-on-med-and-down">

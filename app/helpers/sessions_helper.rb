@@ -17,7 +17,7 @@ module SessionsHelper
   end
 
   def require_login
-    redirect_to root_path and return if session[:user_id] == nil
+    redirect_to root_path and return if session[:user_id].nil?
   end
 
   def get_path_from_city(city)

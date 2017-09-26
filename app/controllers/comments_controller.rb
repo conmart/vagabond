@@ -10,10 +10,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    @post = Post.find_by_id(params[:id])
+    Post.find_by_id(params[:id]).comments << @comment
     @post.comments << @comment
-    @user = User.find_by_id(session[:user_id])
-    @user.comments << @comment
+    User.find_by_id(session[:user_id]).comments << @comment
     redirect_to post_path(@post)
   end
 

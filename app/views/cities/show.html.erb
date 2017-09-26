@@ -6,16 +6,12 @@
 </div>
 
 <div class="post_background">
-  <% if session[:user_id] == nil %>
-    <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
-  <% else %>
-    <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
-  <% end %>
+  <button class="btn waves-effect waves-light new-post"><%= link_to "Add New Post", new_post_path %></button>
   <% flash.each do |name, msg| %>
-   <p class="new-post-error">
+    <p class="new-post-error">
      <%= name.capitalize %>: <%= msg %>
-   </p>
- <% end %>
+    </p>
+  <% end %>
   <div class="post_wrap">
     <% if @city.posts.count == 0 %>
       <br>
@@ -36,7 +32,7 @@
         <div class="contain"><div class="divider"></div></div>
         <h5> <%= link_to "#{post.title}", post_path(post), class: "post_link" %> </h5>
         <p> <%= post.message%> </p>
-        <% if session[:user_id] == nil %>
+        <% if session[:user_id].nil? %>
           <p><%= @user.name %></p>
         <% else %>
           <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %>

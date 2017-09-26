@@ -1,0 +1,32 @@
+
+  <p>Posted by <%= link_to "#{@user.name}", user_path(@user), class: "body_link" %> <%= @post.created_at.strftime(" on %b %-d, %Y")%></p>
+
+<p>Comments:</p>
+
+<div class="comments-thread">
+    <% @comments.each do |comment| %>
+      <% commenter = User.find_by_id(comment.user_id) %>
+      <big><%= comment.message %></big>
+
+        <span>
+          <p><%= link_to "#{commenter.name}", user_path(commenter), class: "body_link" %> <%= comment.created_at.strftime(" on %b %-d, %Y")%></p>
+        </span>
+
+      <% if session[:user_id] == commenter.id %>
+        <%= link_to material_icon.delete, comment, :url => "/comments/#{comment.id}", method: :delete, class: "body_link" %>
+      <% end %>
+
+      <br>
+
+    <% end %>
+
+  <%= form_for @new_comment, :url => "/posts/#{@post.id}/comments" do |f| %>
+
+    <div>
+      <%= f.text_area :message, placeholder: "Add New Comment" %>
+    </div>
+
+      <%= f.submit class: "btn waves-effect waves-light"%>
+
+  <% end %>
+</div>
