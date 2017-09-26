@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :user_match?, only: [:destroy]
+  before_action :require_login, expect: [:index, :show]
 
   def index
   end
