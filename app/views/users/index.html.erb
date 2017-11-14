@@ -1,10 +1,8 @@
-<div class="header_hp center-align z-depth-1">
-  <%=image_tag("nicki-eliza-schinow-356622 (1).jpg")%>
-  <h2 class="main_title">Welcome</h2>
+<div class="header_hp center-align">
+  <%=image_tag("arch-background.jpg")%>
+
 </div>
-<br>
-<br>
-<br>
+
 <h4 class="center-align">Explore These Cities</h4>
 <br>
 <div class="divider"></div>
@@ -12,7 +10,7 @@
 <div class="row">
   <% @cities.each do |city| %>
 <a href='<%= get_path_from_city(city) %>'>
-  <div class="col l4 s12 m4">
+  <div class="col l4 m6 s12">
     <div class="card">
       <div class="real-card">
         <div class="card-image">
